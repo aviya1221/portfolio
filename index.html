@@ -1,261 +1,380 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aviya Cohen - Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
     <style>
-        :root {
-            --primary-color: #2d3436;
-            --secondary-color: #0984e3;
-            --background-color: #f5f6fa;
-            --card-background: #ffffff;
-            --text-color: #2d3436;
-            --transition: all 0.3s ease;
-        }
+      :root {
+        --primary-color: #2d3436;
+        --secondary-color: #0984e3;
+        --background-color: #f5f6fa;
+        --card-background: #ffffff;
+        --text-color: #2d3436;
+        --transition: all 0.3s ease;
+      }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            background-color: var(--background-color);
-            color: var(--text-color);
-        }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        background-color: var(--background-color);
+        color: var(--text-color);
+      }
 
-        header {
-            background-color: var(--card-background);
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
+      header {
+        background-color: var(--card-background);
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
 
-        .header-content {
-            max-width: 800px;
-            margin: 0 auto;
+      .header-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+      }
+
+      .description {
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 1.5rem;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 1rem;
+      }
+
+      .social-links a {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        transition: var(--transition);
+      }
+
+      .social-links a:hover {
+        color: var(--secondary-color);
+        transform: translateY(-3px);
+      }
+
+      .projects-container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+
+      .project-card {
+        background-color: var(--card-background);
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: var(--transition);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .project-preview {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 62.5%; /* 5:8 aspect ratio */
+        overflow: hidden;
+      }
+
+      .project-preview img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .project-preview:hover img {
+        transform: scale(1.05);
+      }
+
+      .project-content {
+        padding: 1.5rem;
+        flex-grow: 1;
+      }
+
+      .project-title {
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+        color: var(--primary-color);
+      }
+
+      .project-description {
+        color: #666;
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+      }
+
+      .project-link {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background-color: var(--secondary-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: var(--transition);
+      }
+
+      .project-link:hover {
+        background-color: #0873c4;
+        transform: translateY(-2px);
+      }
+
+      @media (max-width: 768px) {
+        .projects-grid {
+          grid-template-columns: 1fr;
         }
 
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
+          font-size: 2rem;
         }
 
         .description {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 1.5rem;
+          font-size: 1rem;
         }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            color: var(--secondary-color);
-            transform: translateY(-3px);
-        }
-
-        .projects-container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-
-        .project-card {
-            background-color: var(--card-background);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .project-preview {
-            position: relative;
-            width: 100%;
-            height: 0;
-            padding-bottom: 62.5%; /* 5:8 aspect ratio */
-            overflow: hidden;
-        }
-
-        .project-preview img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .project-preview:hover img {
-            transform: scale(1.05);
-        }
-
-        .project-content {
-            padding: 1.5rem;
-            flex-grow: 1;
-        }
-
-        .project-title {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-        }
-
-        .project-description {
-            color: #666;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-        }
-
-        .project-link {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background-color: var(--secondary-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: var(--transition);
-        }
-
-        .project-link:hover {
-            background-color: #0873c4;
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 768px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            .description {
-                font-size: 1rem;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <div class="header-content">
-            <h1>Aviya Cohen</h1>
-            <p class="description">I'm a Computer Science student with a strong passion for web development. Alongside my academic studies, I'm independently pursuing a full-stack development program — currently focused on frontend technologies.</p>
-            <div class="social-links">
-                <a href="https://github.com/aviya1221" target="_blank" title="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/aviya-cohen-/" target="_blank" title="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-            </div>
+      <div class="header-content">
+        <h1>Aviya Cohen</h1>
+        <p class="description">
+          I'm a Computer Science student with a strong passion for web
+          development. Alongside my academic studies, I'm independently pursuing
+          a full-stack development program — currently focused on frontend
+          technologies.
+        </p>
+        <div class="social-links">
+          <a href="https://github.com/aviya1221" target="_blank" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/aviya-cohen-/"
+            target="_blank"
+            title="LinkedIn"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
         </div>
+      </div>
     </header>
 
     <main class="projects-container">
-        <div class="projects-grid">
-               <article class="project-card">
-                <a href="https://webchatac.netlify.app/" target="_blank" class="project-preview">
-                    <img src="assets/webChat.png" alt="WebChat App Preview">
-                </a>
-                <div class="project-content">
-                    <h2 class="project-title">webChat</h2>
-                    <p class="project-description">
-                        Responsive chat application built with React and Zustand, simulating a personal messaging interface.
-                        Includes a conversation list, chat screen, localStorage data persistence, and mobile-friendly design.
-                        The project features screen navigation, message sending, and dynamic display of users and messages.
-                    </p>
-                    <a href="https://webchatac.netlify.app/" target="_blank" class="project-link">View Project</a>
-                </div>
-            </article>
+      <div class="projects-grid">
+        <article class="project-card">
+          <a
+            href="https://webchatac.netlify.app/"
+            target="_blank"
+            class="project-preview"
+          >
+            <img src="assets/webMail.png" alt="WebChat App Preview" />
+          </a>
+          <div class="project-content">
+            <h2 class="project-title">webMail</h2>
+            <p class="project-description">
+              A responsive application built with React that simulates a modern
+              email client. The project is powered by Google's Firebase, which
+              handles both user management through Firebase Authentication and
+              all data storage via the Firestore database. It replicates a
+              complete mailing interface, including an inbox, sent folder, and a
+              composer. To enhance the user experience, the application also
+              integrates advanced features like AI-powered email summarization
+              with the Gemini API, all delivered in a clean, mobile-friendly
+              design.
+            </p>
+            <a
+              href="https://emailprojac.netlify.app/"
+              target="_blank"
+              class="project-link"
+              >View Project</a
+            >
+          </div>
+        </article>
 
-            <article class="project-card">
-                <a href="https://snakegameac.netlify.app/" target="_blank" class="project-preview">
-                    <img src="assets/snake.png" alt="Snake Game Preview">
-                </a>
-                <div class="project-content">
-                    <h2 class="project-title">Snake Game</h2>
-                    <p class="project-description">A classic Snake game built upon a base script provided by our lecturer. I completed the logic and fully styled the game using JavaScript only — no CSS. A fun exercise in animation and interaction.</p>
-                    <a href="https://snakegameac.netlify.app/" target="_blank" class="project-link">View Project</a>
-                </div>
-            </article>
+        <article class="project-card">
+          <a
+            href="https://webchatac.netlify.app/"
+            target="_blank"
+            class="project-preview"
+          >
+            <img src="assets/webChat.png" alt="WebChat App Preview" />
+          </a>
+          <div class="project-content">
+            <h2 class="project-title">webChat</h2>
+            <p class="project-description">
+              Responsive chat application built with React and Zustand,
+              simulating a personal messaging interface. Includes a conversation
+              list, chat screen, localStorage data persistence, and
+              mobile-friendly design. The project features screen navigation,
+              message sending, and dynamic display of users and messages.
+            </p>
+            <a
+              href="https://webchatac.netlify.app/"
+              target="_blank"
+              class="project-link"
+              >View Project</a
+            >
+          </div>
+        </article>
 
-                 <article class="project-card">
-                <a href="https://weatercursorapp.netlify.app/" target="_blank" class="project-preview">
-                    <img src="assets/weather.png" alt="Weather App Preview">
-                </a>
-                <div class="project-content">
-                    <h2 class="project-title">Weather App</h2>
-                    <p class="project-description">A JavaScript-based weather app built as part of a Cursor assignment. The user enters a city name, and the app fetches weather data from an external API (in JSON format). The background and forecast elements update dynamically based on the current weather conditions.</p>
-                    <a href="https://weatercursorapp.netlify.app/" target="_blank" class="project-link">View Project</a>
-                </div>
-            </article>
+        <article class="project-card">
+          <a
+            href="https://snakegameac.netlify.app/"
+            target="_blank"
+            class="project-preview"
+          >
+            <img src="assets/snake.png" alt="Snake Game Preview" />
+          </a>
+          <div class="project-content">
+            <h2 class="project-title">Snake Game</h2>
+            <p class="project-description">
+              A classic Snake game built upon a base script provided by our
+              lecturer. I completed the logic and fully styled the game using
+              JavaScript only — no CSS. A fun exercise in animation and
+              interaction.
+            </p>
+            <a
+              href="https://snakegameac.netlify.app/"
+              target="_blank"
+              class="project-link"
+              >View Project</a
+            >
+          </div>
+        </article>
 
-                <article class="project-card">
-                <a href="https://musicplayer222.netlify.app/" target="_blank" class="project-preview">
-                    <img src="assets/music.png" alt="Music Player Preview">
-                </a>
-                <div class="project-content">
-                    <h2 class="project-title">Music Player</h2>
-                    <p class="project-description">A non-interactive mobile music player interface built using pure HTML and CSS. Designed to precisely replicate a Figma layout, this project focuses on visual accuracy and mobile responsiveness.</p>
-                    <a href="https://musicplayer222.netlify.app/" target="_blank" class="project-link">View Project</a>
-                </div>
-            </article>
+        <article class="project-card">
+          <a
+            href="https://weatercursorapp.netlify.app/"
+            target="_blank"
+            class="project-preview"
+          >
+            <img src="assets/weather.png" alt="Weather App Preview" />
+          </a>
+          <div class="project-content">
+            <h2 class="project-title">Weather App</h2>
+            <p class="project-description">
+              A JavaScript-based weather app built as part of a Cursor
+              assignment. The user enters a city name, and the app fetches
+              weather data from an external API (in JSON format). The background
+              and forecast elements update dynamically based on the current
+              weather conditions.
+            </p>
+            <a
+              href="https://weatercursorapp.netlify.app/"
+              target="_blank"
+              class="project-link"
+              >View Project</a
+            >
+          </div>
+        </article>
 
+        <article class="project-card">
+          <a
+            href="https://musicplayer222.netlify.app/"
+            target="_blank"
+            class="project-preview"
+          >
+            <img src="assets/music.png" alt="Music Player Preview" />
+          </a>
+          <div class="project-content">
+            <h2 class="project-title">Music Player</h2>
+            <p class="project-description">
+              A non-interactive mobile music player interface built using pure
+              HTML and CSS. Designed to precisely replicate a Figma layout, this
+              project focuses on visual accuracy and mobile responsiveness.
+            </p>
+            <a
+              href="https://musicplayer222.netlify.app/"
+              target="_blank"
+              class="project-link"
+              >View Project</a
+            >
+          </div>
+        </article>
 
-            <article class="project-card">
-                <a href="https://shoppinglistac.netlify.app/" target="_blank" class="project-preview">
-                    <img src="assets/shopList.png" alt="Shopping List Preview">
-                </a>
-                <div class="project-content">
-                    <h2 class="project-title">Shopping List</h2>
-                    <p class="project-description">A dynamic shopping list app that allows users to add, display, and persist items in local storage. The design is clean and interactive, helping users manage their grocery plans efficiently.</p>
-                    <a href="https://shoppinglistac.netlify.app/" target="_blank" class="project-link">View Project</a>
-                </div>
-            </article>
+        <article class="project-card">
+          <a
+            href="https://shoppinglistac.netlify.app/"
+            target="_blank"
+            class="project-preview"
+          >
+            <img src="assets/shopList.png" alt="Shopping List Preview" />
+          </a>
+          <div class="project-content">
+            <h2 class="project-title">Shopping List</h2>
+            <p class="project-description">
+              A dynamic shopping list app that allows users to add, display, and
+              persist items in local storage. The design is clean and
+              interactive, helping users manage their grocery plans efficiently.
+            </p>
+            <a
+              href="https://shoppinglistac.netlify.app/"
+              target="_blank"
+              class="project-link"
+              >View Project</a
+            >
+          </div>
+        </article>
 
-            <article class="project-card">
-                <a href="https://paymentcardsac.netlify.app/" target="_blank" class="project-preview">
-                    <img src="assets/paymentCards.png" alt="Payment Cards Preview">
-                </a>
-                <div class="project-content">
-                    <h2 class="project-title">React Payment Cards</h2>
-                    <p class="project-description">My first experiment with React — this project displays animated payment cards that respond to mouse movement. Focused on UI/UX and learning React component structure.</p>
-                    <a href="https://paymentcardsac.netlify.app/" target="_blank" class="project-link">View Project</a>
-                </div>
-            </article>
-        </div>
+        <article class="project-card">
+          <a
+            href="https://paymentcardsac.netlify.app/"
+            target="_blank"
+            class="project-preview"
+          >
+            <img src="assets/paymentCards.png" alt="Payment Cards Preview" />
+          </a>
+          <div class="project-content">
+            <h2 class="project-title">React Payment Cards</h2>
+            <p class="project-description">
+              My first experiment with React — this project displays animated
+              payment cards that respond to mouse movement. Focused on UI/UX and
+              learning React component structure.
+            </p>
+            <a
+              href="https://paymentcardsac.netlify.app/"
+              target="_blank"
+              class="project-link"
+              >View Project</a
+            >
+          </div>
+        </article>
+      </div>
     </main>
-</body>
-</html> 
-
+  </body>
+</html>
